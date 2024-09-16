@@ -17,10 +17,11 @@
 
 #define DEFAULT      0
 #define COLEMAK_DH   1
-#define KEYPAD       2
-#define FUNCTION     3
-#define DEF_MOD      4
-#define CDH_MOD      5
+#define COLEMAK_DH_W 2
+#define KEYPAD       3
+#define FUNCTION     4
+#define DEF_MOD      5
+#define CDH_MOD      6
 
 / {
     behaviors {
@@ -50,6 +51,7 @@
 &mo FUNCTION  &kp GRAVE  &kp CAPS  &kp LEFT  &kp RIGHT          &kp BSPC    &kp DEL    &kp END       &kp PG_DN  &kp ENTER  &kp SPACE             &kp DOWN  &kp UP     &kp LBKT  &kp RBKT  &mo 2
             >;
         };
+
         colemak_dh {
             bindings = <
 &kp EQUAL     &kp N1     &kp N2    &kp N3    &kp N4     &kp N5  &tog KEYPAD                                                &mo CDH_MOD       &kp N6  &kp N7    &kp N8     &kp N9    &kp N0    &kp MINUS
@@ -57,6 +59,16 @@
 &kp ESC       &kp A      &kp R     &kp S     &kp T      &kp G   &kp INSERT  &kp LCTRL  &kp LALT      &kp LGUI   &kp RCTRL  &kp K_VOL_DN      &kp M   &kp N     &kp E      &kp I     &kp O     &kp SQT
 &kp LSHFT     &kp Z      &kp X     &kp C     &kp D      &kp V                          &kp HOME      &kp PG_UP                               &kp K   &kp H     &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
 &mo FUNCTION  &kp GRAVE  &kp CAPS  &kp LEFT  &kp RIGHT          &kp BSPC    &kp DEL    &kp END       &kp PG_DN  &kp ENTER  &kp SPACE                 &kp DOWN  &kp UP     &kp LBKT  &kp RBKT  &mo 2
+            >;
+        };
+
+        colemak_dh_wide {
+            bindings = <
+&kp BSLH      &kp N1     &kp N2    &kp N3    &kp N4     &kp N5  &tog KEYPAD                                                &mo CDH_MOD       &kp EQUAL  &kp N6    &kp N7    &kp N8     &kp N9    &kp N0
+&kp TAB       &kp Q      &kp W     &kp F     &kp P      &kp B   &kp K_PP                                                   &kp K_VOL_UP      &kp LBKT   &kp J     &kp L     &kp U      &kp Y     &kp SEMI
+&kp ESC       &kp A      &kp R     &kp S     &kp T      &kp G   &kp INSERT  &kp LCTRL  &kp LALT      &kp LGUI   &kp RCTRL  &kp K_VOL_DN      &kp RBKT   &kp M     &kp N     &kp E      &kp I     &kp O
+&kp LSHFT     &kp Z      &kp X     &kp C     &kp D      &kp V                          &kp HOME      &kp PG_UP                               &kp FSLH   &kp K     &kp H     &kp COMMA  &kp DOT   &kp FSLH
+&mo FUNCTION  &kp GRAVE  &kp CAPS  &kp LEFT  &kp RIGHT          &kp BSPC    &kp DEL    &kp END       &kp PG_DN  &kp ENTER  &kp SPACE                    &kp DOWN  &kp UP    &kp MINUS  &kp SQT   &mo 2
             >;
         };
 
@@ -82,11 +94,11 @@
 
         layer_mod {
             bindings = <
-&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none                                                  &trans                  &to COLEMAK_DH   &none       &none       &none  &none  &none
-&none  &none         &none         &none         &none         &none         &bootloader                                            &bootloader             &none            &none       &none       &none  &none  &none
-&none  &none         &none         &none         &none         &none         &none        &none  &none      &bt BT_CLR  &none       &rgb_ug RGB_MEFS_CMD 5  &none            &none       &none       &none  &none  &none
-&none  &none         &none         &none         &none         &none                             &none      &none                                           &none            &none       &none       &none  &none  &none
-&none  &none         &none         &none         &none                       &none        &none  &none      &none       &bl BL_TOG  &rgb_ug RGB_TOG                          &bl BL_INC  &bl BL_DEC  &none  &none  &none
+&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none                                                  &trans                  &to COLEMAK_DH   &to COLEMAK_DH_W  &none       &none  &none  &none
+&none  &none         &none         &none         &none         &none         &bootloader                                            &bootloader             &none            &none             &none       &none  &none  &none
+&none  &none         &none         &none         &none         &none         &none        &none  &none      &bt BT_CLR  &none       &rgb_ug RGB_MEFS_CMD 5  &none            &none             &none       &none  &none  &none
+&none  &none         &none         &none         &none         &none                             &none      &none                                           &none            &none             &none       &none  &none  &none
+&none  &none         &none         &none         &none                       &none        &none  &none      &none       &bl BL_TOG  &rgb_ug RGB_TOG                          &bl BL_INC        &bl BL_DEC  &none  &none  &none
             >;
         };
         cdh_layer_mod {
