@@ -28,6 +28,9 @@
 #define CORNE_DEF_MOD      10
 
 #define TD_HM_TAP_TERM     175
+#define HM_TAP_TERM        220
+#define HM_QUICK_TAP_TERM  125
+
 / {
     behaviors {
         #include "macros.dtsi"
@@ -37,9 +40,9 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
-            tapping-term-ms = <210>;
-            quick_tap_ms = <125>;
-            flavor = "tap-preferred";
+            tapping-term-ms = <HM_TAP_TERM>;
+            quick_tap_ms = <HM_QUICK_TAP_TERM>;
+            flavor = "balanced";
             bindings = <&kp>, <&kp>;
         };
 
@@ -53,7 +56,7 @@
         td_hm_k: tap_dance_hm_k_alt {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <210>;
+            tapping-term-ms = <HM_TAP_TERM>;
             bindings = <&hm RALT K>, <&kp K>;
         };
 
@@ -178,21 +181,21 @@
         };
         corne_qwerty_layer {
             bindings = <
-&td_qwerty  &none               &none                &none                 &none         &none     &none                                                               &none      &none  &none     &none                     &none                  &none                  &none
-&none       &kp Q               &kp W                &kp E                 &kp R         &kp T     &none                                                               &none      &kp Y  &kp U     &kp I                     &kp  O                 &kp P                  &none
-&none       &hm LCTRL A         &hm LGUI S           &hm LALT D            &hm LSHIFT F  &kp G     &none     &lt CORNE_FUNCTION ESC  &none    &none  &none             &none      &kp H  &td_hm_j  &td_hm_k                  &td_hm_l               &hm RCTRL SEMI         &none
-&none       &td_z               &lt CORNE_DEF_MOD X  &lt CORNE_FUNCTION C  &td_v         &kp B                                       &none    &none                               &kp N  &kp M     &lt CORNE_FUNCTION COMMA  &lt CORNE_DEF_MOD DOT  &lt CORNE_KEYPAD FSLH  &none
-&none       &mo CORNE_DEF_MOD   &none                &none                 &none                   &kp BSPC  &mo CORNE_KEYPAD        &none    &none  &hm RSHIFT ENTER  &kp SPACE         &none     &none                     &none                  &mo CORNE_DEF_MOD      &none
+&td_qwerty  &none               &none                &none                 &none         &none  &none                                                            &none      &none  &none     &none                     &none                  &none                  &none
+&none       &kp Q               &kp W                &kp E                 &kp R         &kp T  &none                                                            &none      &kp Y  &kp U     &kp I                     &kp  O                 &kp P                  &none
+&none       &hm LCTRL A         &hm LGUI S           &hm LALT D            &hm LSHIFT F  &kp G  &none     &lt CORNE_KEYPAD ESC  &none   &none  &kp ESC           &none      &kp H  &td_hm_j  &td_hm_k                  &td_hm_l               &hm RCTRL SEMI         &none
+&none       &td_z               &lt CORNE_DEF_MOD X  &lt CORNE_FUNCTION C  &td_v         &kp B                                  &none   &none                               &kp N  &kp M     &lt CORNE_FUNCTION COMMA  &lt CORNE_DEF_MOD DOT  &lt CORNE_KEYPAD FSLH  &none
+&none       &mo CORNE_DEF_MOD   &none                &none                 &none                &kp BSPC  &mo CORNE_FUNCTION    &none   &none  &hm RSHIFT ENTER  &kp SPACE         &none     &none                     &none                  &mo CORNE_DEF_MOD      &none
             >;
         };
 
         corne_colemak_dh {
             bindings = <
-&td_colemak  &none        &none                 &none                &none         &none  &none                                                       &none      &none   &none         &none           &none          &none           &none
-&none        &kp Q        &kp W                 &kp F                &kp P         &kp B  &none                                                       &none      &kp J   &kp L         &kp U           &kp Y          &kp SEMI        &none
-&none        &hm LCTRL A  &hm LGUI R            &hm LALT S           &hm LSHIFT T  &kp G  &none     &lt CORNE_FUNCTION ESC  &none   &none             &none      &kp M   &kp N         &kp E           &kp  I         &kp O           &none
-&none        &td_z        &lt CORNE_FUNCTION X  &lt CORNE_DEF_MOD C  &kp D         &kp V                                    &none   &none                        &kp K   &hm RSHIFT H  &hm RALT COMMA  &hm  RGUI DOT  &hm RCTRL FSLH  &none
-&none        &none        &none                 &none                &none                &kp BSPC  &mo CORNE_KEYPAD        &none   &hm RSHIFT ENTER  &kp SPACE          &none         &none           &none          &none           &none
+&td_colemak  &none              &none                &none                 &none         &none  &none                                                            &none      &none   &none         &none           &none          &none           &none
+&none        &kp Q              &kp W                &kp F                 &kp P         &kp B  &none                                                            &none      &kp J   &kp L         &kp U           &kp Y          &kp SEMI        &none
+&none        &hm LCTRL A        &hm LGUI R           &hm LALT S            &hm LSHIFT T  &kp G  &none     &lt CORNE_KEYPAD ESC  &none   &none                    &none      &kp M   &kp N         &kp E           &kp  I         &kp O           &none
+&none        &td_z              &lt CORNE_DEF_MOD X  &lt CORNE_FUNCTION C  &kp D         &kp V                                  &none   &none                               &kp K   &hm RSHIFT H  &hm RALT COMMA  &hm  RGUI DOT  &hm RCTRL FSLH  &none
+&none        &mo CORNE_DEF_MOD  &none                &none                 &none                &kp BSPC  &mo CORNE_FUNCTION    &none   &none  &hm RSHIFT ENTER  &kp SPACE          &none         &none           &none          &none           &none
             >;
         };
 
@@ -208,11 +211,11 @@
 
         corne_layer_fn {
         bindings = <
-&none   &none    &none    &none   &none         &none       &none                                                  &none     &none     &none      &none    &none      &none    &none
-&none   &kp F1   &kp F2   &kp F3  &kp F4        &kp F5      &none                                                  &none     &kp F6    &kp F7     &kp F8   &kp F9     &kp F10  &none
-&none   &kp F11  &kp F12  &none   &kp C_VOL_UP  &kp C_PLAY  &none     &none       &none   &none    &none           &none     &kp LEFT  &kp DOWN   &kp UP   &kp RIGHT  &none    &none
-&none   &none    &none    &trans  &kp C_VOL_DN  &kp INS                           &none   &none                              &kp HOME  &kp PG_DN  &kp PG_UP  &kp END  &none    &none
-&none   &none    &none    &none   &none                     &kp DEL   &kp LSHIFT  &none   &kp ESC  &hm RSHIFT ESC  &kp TAB             &none      &none      &none    &none    &none
+&none   &none    &none    &none   &none         &none       &none                                              &none     &none     &none      &none    &none      &none    &none
+&none   &kp F1   &kp F2   &kp F3  &kp F4        &kp F5      &none                                              &none     &kp F6    &kp F7     &kp F8   &kp F9     &kp F10  &none
+&none   &kp F11  &kp F12  &none   &kp C_VOL_UP  &kp C_PLAY  &none     &kp ESC     &none   &none    &kp ESC     &none     &kp LEFT  &kp DOWN   &kp UP   &kp RIGHT  &none    &none
+&none   &none    &none    &trans  &kp C_VOL_DN  &kp INS                           &none   &none                          &kp HOME  &kp PG_DN  &kp PG_UP  &kp END  &none    &none
+&none   &none    &none    &none   &none                     &kp DEL   &kp LSHIFT  &none   &kp ESC  &kp RSHIFT  &kp TAB             &none      &none      &none    &none    &none
             >;
         };
 
