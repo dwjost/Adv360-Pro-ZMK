@@ -29,8 +29,8 @@
 
 #define TD_HM_TAP_TERM     175
 #define HM_TAP_TERM        220
-#define HM_QUICK_TAP_TERM  125
-
+#define HM_QUICK_TAP_TERM  150
+#define HM_REQUIRE_IDLE_MS 125
 / {
     behaviors {
         #include "macros.dtsi"
@@ -42,6 +42,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <HM_TAP_TERM>;
             quick_tap_ms = <HM_QUICK_TAP_TERM>;
+            require-prior-idle-ms = <HM_REQUIRE_IDLE_MS>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
         };
@@ -193,7 +194,7 @@
             bindings = <
 &td_colemak  &none              &none                &none                 &none         &none  &none                                                              &none      &none   &none         &none           &none          &none           &none
 &none        &kp Q              &kp W                &kp F                 &kp P         &kp B  &none                                                              &none      &kp J   &kp L         &kp U           &kp Y          &kp SEMI        &none
-&none        &hm LCTRL A        &hm LGUI R           &hm LALT S            &hm LSHIFT T  &kp G  &none     &lt CORNE_FUNCTION ESC  &none   &none                    &none      &kp M   &kp N         &kp E           &kp  I         &kp O           &none
+&none        &hm LCTRL A        &hm LGUI R           &hm LALT S            &hm LSHIFT T  &kp G  &none     &lt CORNE_FUNCTION ESC  &none   &none  &lt CORNE_FUNCTION ESC       &none      &kp M   &kp N         &kp E           &kp  I         &kp O           &none
 &none        &td_z              &lt CORNE_DEF_MOD X  &lt CORNE_FUNCTION C  &kp D         &kp V                                    &none   &none                               &kp K   &hm RSHIFT H  &hm RALT COMMA  &hm  RGUI DOT  &hm RCTRL FSLH  &none
 &none        &mo CORNE_DEF_MOD  &none                &none                 &none                &kp BSPC  &mo CORNE_KEYPAD        &none   &none  &hm RSHIFT ENTER  &kp SPACE          &none         &none           &none          &none           &none
             >;
