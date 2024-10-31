@@ -32,6 +32,8 @@
 #define HM_TAP_TERM        220
 #define HM_QUICK_TAP_TERM  150
 #define HM_REQUIRE_IDLE_MS 125
+#define TD_CW_TAP_TERM     300
+
 / {
     behaviors {
         #include "macros.dtsi"
@@ -121,7 +123,7 @@
         td_corne_cw_nav: tap_dance_caps_corne {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <TD_HM_TAP_TERM>;
+            tapping-term-ms = <TD_CW_TAP_TERM>;
             bindings = <&mo CORNE_NAV>, <&caps_word>;
         };
     };
