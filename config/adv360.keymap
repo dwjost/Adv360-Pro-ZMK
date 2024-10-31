@@ -184,19 +184,19 @@
             bindings = <
 &td_qwerty  &none               &none                &none                 &none         &none  &none                                                                    &none      &none  &none     &none                     &none                  &none                  &none
 &none       &kp Q               &kp W                &kp E                 &kp R         &kp T  &none                                                                    &none      &kp Y  &kp U     &kp I                     &kp  O                 &kp P                  &none
-&none       &hm LCTRL A         &hm LGUI S           &hm LALT D            &hm LSHIFT F  &kp G  &none     &lt CORNE_FUNCTION ESC  &none   &none  &lt CORNE_FUNCTION ESC  &none      &kp H  &td_hm_j  &td_hm_k                  &td_hm_l               &hm RCTRL SEMI         &none
-&none       &td_z               &lt CORNE_DEF_MOD X  &lt CORNE_FUNCTION C  &td_v         &kp B                                    &none   &none                                     &kp N  &kp M     &lt CORNE_FUNCTION COMMA  &lt CORNE_DEF_MOD DOT  &lt CORNE_KEYPAD FSLH  &none
-&none       &mo CORNE_DEF_MOD   &none                &none                 &none                &kp BSPC  &mo CORNE_KEYPAD        &none   &none  &hm RSHIFT ENTER        &kp SPACE         &none     &none                     &none                  &mo CORNE_DEF_MOD      &none
+&none       &hm LCTRL A         &hm LGUI S           &hm LALT D            &hm LSHIFT F  &kp G  &none     &lt CORNE_KEYPAD ESC  &none   &none  &lt CORNE_KEYPAD ESC      &none      &kp H  &td_hm_j  &td_hm_k                  &td_hm_l               &hm RCTRL SEMI         &none
+&none       &td_z               &lt CORNE_DEF_MOD X  &lt CORNE_FUNCTION C  &td_v         &kp B                                  &none   &none                                       &kp N  &kp M     &lt CORNE_FUNCTION COMMA  &lt CORNE_DEF_MOD DOT  &lt CORNE_KEYPAD FSLH  &none
+&none       &mo CORNE_DEF_MOD   &none                &none                 &none                &kp BSPC  &mo CORNE_FUNCTION    &none   &none  &lt CORNE_FUNCTION ENTER  &kp SPACE         &none     &none                     &none                  &mo CORNE_DEF_MOD      &none
             >;
         };
 
         corne_colemak_dh {
             bindings = <
-&td_colemak  &none              &none                &none                 &none         &none  &none                                                              &none      &none   &none         &none           &none          &none           &none
-&none        &kp Q              &kp W                &kp F                 &kp P         &kp B  &none                                                              &none      &kp J   &kp L         &kp U           &kp Y          &kp SEMI        &none
-&none        &hm LCTRL A        &hm LGUI R           &hm LALT S            &hm LSHIFT T  &kp G  &none     &lt CORNE_FUNCTION ESC  &none   &none  &lt CORNE_FUNCTION ESC       &none      &kp M   &kp N         &kp E           &kp  I         &kp O           &none
-&none        &td_z              &lt CORNE_DEF_MOD X  &lt CORNE_FUNCTION C  &kp D         &kp V                                    &none   &none                               &kp K   &hm RSHIFT H  &hm RALT COMMA  &hm  RGUI DOT  &hm RCTRL FSLH  &none
-&none        &mo CORNE_DEF_MOD  &none                &none                 &none                &kp BSPC  &mo CORNE_KEYPAD        &none   &none  &hm RSHIFT ENTER  &kp SPACE          &none         &none           &none          &none           &none
+&td_colemak  &none              &none                &none                 &none         &none  &none                                                                    &none      &none   &none         &none           &none          &none           &none
+&none        &kp Q              &kp W                &kp F                 &kp P         &kp B  &none                                                                    &none      &kp J   &kp L         &kp U           &kp Y          &kp SEMI        &none
+&none        &hm LCTRL A        &hm LGUI R           &hm LALT S            &hm LSHIFT T  &kp G  &none     &lt CORNE_KEYPAD ESC  &none   &none  &lt CORNE_KEYPAD ESC      &none      &kp M   &kp N         &kp E           &kp  I         &kp O           &none
+&none        &td_z              &lt CORNE_DEF_MOD X  &lt CORNE_FUNCTION C  &kp D         &kp V                                  &none   &none                                       &kp K   &hm RSHIFT H  &hm RALT COMMA  &hm  RGUI DOT  &hm RCTRL FSLH  &none
+&none        &mo CORNE_DEF_MOD  &none                &none                 &none                &kp BSPC  &mo CORNE_FUNCTION    &none   &none  &lt CORNE_FUNCTION ENTER  &kp SPACE          &none         &none           &none          &none           &none
             >;
         };
 
