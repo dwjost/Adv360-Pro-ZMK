@@ -29,7 +29,8 @@
 #define CORNE_DEF_MOD      11
 
 #define TD_HM_TAP_TERM     175
-#define HM_TAP_TERM        220
+#define TD_Z_TAP_TERM      250
+#define HM_TAP_TERM        200
 #define HM_QUICK_TAP_TERM  150
 #define HM_REQUIRE_IDLE_MS 125
 #define TD_CW_TAP_TERM     300
@@ -46,7 +47,7 @@
             tapping-term-ms = <HM_TAP_TERM>;
             quick_tap_ms = <HM_QUICK_TAP_TERM>;
             require-prior-idle-ms = <HM_REQUIRE_IDLE_MS>;
-            flavor = "balanced";
+            flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
 
@@ -78,10 +79,10 @@
             bindings = <&kp V>, <&kp LS(V)>;
         };
 
-        td_z: tap_dance_z_shift_z {
+        td_z: tap_dance_z_ctrl_z {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <TD_HM_TAP_TERM>;
+            tapping-term-ms = <TD_Z_TAP_TERM>;
             bindings = <&lt CORNE_KEYPAD Z>, <&kp RC(Z)>;
         };
 
@@ -133,21 +134,21 @@
 
         default_layer {
             bindings = <
-&td_corne_q   &kp N1        &kp N2           &kp N3          &kp N4        &kp N5  &kp N6                                                             &kp EQUAL     &kp N6    &kp N7     &kp N8     &kp  N9      &kp N0          &kp MINUS
-&kp TAB       &kp Q         &kp W            &kp E           &kp R         &kp T   &kp LBKT                                                           &kp RBKT      &kp Y     &kp U      &kp I      &kp  O       &kp P           &kp BSLH
-&kp ESC       &hm LCTRL A   &hm LGUI S       &hm LALT D      &hm LSHIFT F  &kp G   &kp FSLH    &kp LCTRL          &kp LALT      &kp LGUI   &kp RCTRL  &kp FSLH      &kp H     &td_hm_j   &td_hm_k   &td_hm_l     &hm RCTRL SEMI  &kp SQT
-&kp LSHFT     &lt KEYPAD Z  &lt FUNCTION  X  &lt FUNCTION C  &td_v         &kp B                                  &kp HOME      &kp PG_UP                           &kp N     &kp M      &kp COMMA  &kp DOT      &kp FSLH        &kp RSHFT
-&mo FUNCTION  &mo DEF_MOD   &none            &kp LEFT        &kp RIGHT             &kp BSPC    &lt FUNCTION ESC   &kp END       &kp PG_DN  &kp ENTER  &kp SPACE                 &kp DOWN   &kp UP     &tog KEYPAD  &mo DEF_MOD     &mo FUNCTION
+&td_corne_q   &kp N1        &kp N2           &kp N3          &kp N4        &kp N5  &kp N6                                                                         &kp EQUAL     &kp N6    &kp N7     &kp N8     &kp  N9      &kp N0          &kp MINUS
+&kp TAB       &kp Q         &kp W            &kp E           &kp R         &kp T   &kp LBKT                                                                       &kp RBKT      &kp Y     &kp U      &kp I      &kp  O       &kp P           &kp BSLH
+&kp ESC       &hm LCTRL A   &hm LGUI S       &hm LALT D      &hm LSHIFT F  &kp G   &kp FSLH  &lt CORNE_KEYPAD ESC  &kp LALT      &kp LGUI   &lt CORNE_KEYPAD ESC  &kp FSLH      &kp H     &td_hm_j   &td_hm_k   &td_hm_l     &hm RCTRL SEMI  &kp SQT
+&kp LSHFT     &lt KEYPAD Z  &lt FUNCTION  X  &lt FUNCTION C  &td_v         &kp B                                   &kp HOME      &kp PG_UP                                      &kp N     &kp M      &kp COMMA  &kp DOT      &kp FSLH        &kp RSHFT
+&mo FUNCTION  &mo DEF_MOD   &none            &kp LEFT        &kp RIGHT             &kp BSPC  &td_corne_cw_nav      &kp END       &kp PG_DN  &lt CORNE_NAV ENTER   &kp SPACE               &kp DOWN   &kp UP     &tog KEYPAD  &mo DEF_MOD     &mo FUNCTION
             >;
         };
 
         colemak_dh {
             bindings = <
-&td_corne_c   &kp N1       &kp N2      &kp N3      &kp N4        &kp N5  &kp N6                                                            &kp EQUAL     &kp N6  &kp N7        &kp N8          &kp  N9        &kp N0          &kp MINUS
-&kp TAB       &kp Q        &kp W       &kp F       &kp P         &kp B   &kp LBKT                                                          &kp RBKT      &kp J   &kp L         &kp U           &kp  Y         &kp SEMI        &kp BSLH
-&kp ESC       &hm LCTRL A  &hm LGUI R  &hm LALT S  &hm LSHIFT T  &kp G   &kp FSLH    &kp LCTRL         &kp LALT      &kp LGUI   &kp RCTRL  &kp FSLH      &kp M   &kp N         &kp E           &kp  I         &kp O           &kp SQT
-&kp LSHFT     &kp Z        &kp X       &kp C       &kp D         &kp V                                 &kp HOME      &kp PG_UP                           &kp K   &hm RSHIFT H  &hm RALT COMMA  &hm  RGUI DOT  &hm RCTRL FSLH  &kp RSHFT
-&mo FUNCTION  &mo CDH_MOD  &kp CAPS    &kp LEFT    &kp RIGHT             &kp BSPC    &lt FUNCTION ESC  &kp END       &kp PG_DN  &kp ENTER  &kp SPACE             &kp DOWN      &kp UP          &tog KEYPAD    &mo CDH_MOD     &mo FUNCTION
+&td_corne_c   &kp N1       &kp N2      &kp N3      &kp N4        &kp N5  &kp N6                                                                         &kp EQUAL     &kp N6  &kp N7        &kp N8          &kp  N9        &kp N0          &kp MINUS
+&kp TAB       &kp Q        &kp W       &kp F       &kp P         &kp B   &kp LBKT                                                                       &kp RBKT      &kp J   &kp L         &kp U           &kp  Y         &kp SEMI        &kp BSLH
+&kp ESC       &hm LCTRL A  &hm LGUI R  &hm LALT S  &hm LSHIFT T  &kp G   &kp FSLH  &lt CORNE_KEYPAD ESC  &kp LALT      &kp LGUI   &lt CORNE_KEYPAD ESC  &kp FSLH      &kp M   &kp N         &kp E           &kp  I         &kp O           &kp SQT
+&kp LSHFT     &kp Z        &kp X       &kp C       &kp D         &kp V                                   &kp HOME      &kp PG_UP                                      &kp K   &hm RSHIFT H  &hm RALT COMMA  &hm  RGUI DOT  &hm RCTRL FSLH  &kp RSHFT
+&mo FUNCTION  &mo CDH_MOD  &kp CAPS    &kp LEFT    &kp RIGHT             &kp BSPC  &td_corne_cw_nav      &kp END       &kp PG_DN  &lt CORNE_NAV ENTER   &kp SPACE             &kp DOWN      &kp UP          &tog KEYPAD    &mo CDH_MOD     &mo FUNCTION
             >;
         };
 
@@ -232,11 +233,11 @@
 
         corne_layer_nav {
         bindings = <
-&none   &none       &none       &none       &none         &none       &none                                              &none    &none       &none       &none       &none       &none       &none
-&none   &kp LG(N1)  &kp LG(N2)  &kp LG(N3)  &kp LG(N4)    &kp LG(N5)  &none                                              &none    &kp LG(N6)  &kp LG(N7)  &kp LG(N8)  &kp LG(N9)  &kp LG(N0)  &none
-&none   &kp LCTRL   &kp LGUI    &kp LALT    &kp C_VOL_UP  &kp C_PLAY  &none      &kp ESC    &none   &none    &kp ESC     &none    &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &none       &none
-&none   &none       &none       &none       &kp C_VOL_DN  &kp INS                           &none   &none                         &kp HOME    &kp PG_DN   &kp PG_UP   &kp END     &none       &none
-&none   &none       &none       &none       &none                     &kp DEL   &kp LSHIFT  &none   &kp ESC  &kp RSHIFT  &kp TAB              &none       &none       &none       &none       &none
+&none   &none       &none       &none         &none         &none       &none                                              &none    &none       &none       &none       &none       &none       &none
+&none   &kp LG(N1)  &kp LG(N2)  &kp LG(N3)    &kp LG(N4)    &kp LG(N5)  &none                                              &none    &kp LG(N6)  &kp LG(N7)  &kp LG(N8)  &kp LG(N9)  &kp LG(N0)  &none
+&none   &kp LCTRL   &kp LGUI    &kp LALT      &kp LSHIFT    &kp C_PLAY  &none      &kp ESC    &none   &none    &kp ESC     &none    &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &none       &none
+&none   &none       &none       &kp C_VOL_DN  &kp C_VOL_UP  &kp INS                           &none   &none                         &kp HOME    &kp PG_DN   &kp PG_UP   &kp END     &none       &none
+&none   &none       &none       &none         &none                     &kp DEL   &kp LSHIFT  &none   &kp ESC  &kp RSHIFT  &kp TAB              &none       &none       &none       &none       &none
             >;
         };
 
