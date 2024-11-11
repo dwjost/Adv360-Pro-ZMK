@@ -51,6 +51,13 @@
             bindings = <&kp>, <&kp>;
         };
 
+        td_hm_a: tap_dance_hm_a_lctrl {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <TD_HM_TAP_TERM>;
+            bindings = <&hm LCTRL A>, <&kp LC(A)>;
+        };
+
         td_hm_j: tap_dance_hm_j_shift {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -125,7 +132,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <TD_CW_TAP_TERM>;
-            bindings = <&mo CORNE_NAV>, <&caps_word>;
+            bindings = <&lt CORNE_NAV SPACE>, <&caps_word>;
         };
     };
 
@@ -136,7 +143,7 @@
             bindings = <
 &td_corne_q   &kp N1        &kp N2           &kp N3          &kp N4        &kp N5  &kp N6                                                                         &kp EQUAL     &kp N6    &kp N7     &kp N8     &kp  N9      &kp N0          &kp MINUS
 &kp TAB       &kp Q         &kp W            &kp E           &kp R         &kp T   &kp LBKT                                                                       &kp RBKT      &kp Y     &kp U      &kp I      &kp  O       &kp P           &kp BSLH
-&kp ESC       &hm LCTRL A   &hm LGUI S       &hm LALT D      &hm LSHIFT F  &kp G   &kp FSLH  &lt CORNE_KEYPAD ESC  &kp LALT      &kp LGUI   &lt CORNE_KEYPAD ESC  &kp FSLH      &kp H     &td_hm_j   &td_hm_k   &td_hm_l     &hm RCTRL SEMI  &kp SQT
+&kp ESC       &td_hm_a      &hm LGUI S       &hm LALT D      &hm LSHIFT F  &kp G   &kp FSLH  &lt CORNE_KEYPAD ESC  &kp LALT      &kp LGUI   &lt CORNE_KEYPAD ESC  &kp FSLH      &kp H     &td_hm_j   &td_hm_k   &td_hm_l     &hm RCTRL SEMI  &kp SQT
 &kp LSHFT     &lt KEYPAD Z  &lt FUNCTION  X  &lt FUNCTION C  &td_v         &kp B                                   &kp HOME      &kp PG_UP                                      &kp N     &kp M      &kp COMMA  &kp DOT      &kp FSLH        &kp RSHFT
 &mo FUNCTION  &mo DEF_MOD   &none            &kp LEFT        &kp RIGHT             &kp BSPC  &td_corne_cw_nav      &kp END       &kp PG_DN  &lt CORNE_NAV ENTER   &kp SPACE               &kp DOWN   &kp UP     &tog KEYPAD  &mo DEF_MOD     &mo FUNCTION
             >;
@@ -195,7 +202,7 @@
             bindings = <
 &td_qwerty  &none               &none                &none                 &none         &none  &none                                                                &none      &none  &none     &none                     &none                  &none                  &none
 &none       &kp Q               &kp W                &kp E                 &kp R         &kp T  &none                                                                &none      &kp Y  &kp U     &kp I                     &kp  O                 &kp P                  &none
-&none       &hm LCTRL A         &hm LGUI S           &hm LALT D            &hm LSHIFT F  &kp G  &none     &lt CORNE_KEYPAD ESC  &none   &none  &lt CORNE_KEYPAD ESC  &none      &kp H  &td_hm_j  &td_hm_k                  &td_hm_l               &hm RCTRL SEMI         &none
+&none       &td_hm_a            &hm LGUI S           &hm LALT D            &hm LSHIFT F  &kp G  &none     &lt CORNE_KEYPAD ESC  &none   &none  &lt CORNE_KEYPAD ESC  &none      &kp H  &td_hm_j  &td_hm_k                  &td_hm_l               &hm RCTRL SEMI         &none
 &none       &td_z               &lt CORNE_DEF_MOD X  &lt CORNE_NAV C       &td_v         &kp B                                  &none   &none                                   &kp N  &kp M     &lt CORNE_NAV COMMA  &lt CORNE_DEF_MOD DOT  &lt CORNE_KEYPAD FSLH  &none
 &none       &mo CORNE_DEF_MOD   &none                &none                 &none                &kp BSPC  &td_corne_cw_nav      &none   &none  &lt CORNE_NAV ENTER   &kp SPACE         &none     &none                     &none                  &mo CORNE_DEF_MOD      &none
             >;
