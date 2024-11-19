@@ -33,7 +33,7 @@
 #define HM_TAP_TERM        200
 #define HM_QUICK_TAP_TERM  150
 #define HM_REQUIRE_IDLE_MS 125
-#define TD_CW_TAP_TERM     300
+#define TD_CW_TAP_TERM     200
 
 / {
     behaviors {
