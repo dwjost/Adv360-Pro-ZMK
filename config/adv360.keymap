@@ -15,14 +15,14 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/rgb.h>
 
-#define QWERTY            0
+#define QWERTY             0
 #define COLEMAK_DH         1
 #define KEYPAD             2
 #define FUNCTION           3
 #define DEF_MOD            4
 #define CDH_MOD            5
-#define CORNE_COLEMAK_DH   6
-#define CORNE_QWERTY       7
+#define CORNE_COLEMAK_DH   7
+#define CORNE_QWERTY       6
 #define CORNE_KEYPAD       8
 #define CORNE_FUNCTION     9
 #define CORNE_NAV          10
@@ -176,11 +176,11 @@
 
         layer_fn {
         bindings = <
-&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &tog KEYPAD                                        &mo DEF_MOD   &kp F7    &kp F8     &kp F9     &kp F10    &kp F11  &kp F12
-&trans  &trans  &trans  &trans  &trans  &trans  &kp C_PLAY                                         &kp C_VOL_UP  &trans    &trans     &trans     &trans     &trans   &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &kp INS      &trans   &trans      &trans  &trans   &kp C_VOL_DN  &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &trans   &trans
-&trans  &trans  &trans  &trans  &trans  &trans                        &trans      &trans                         &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &trans   &trans
-&trans  &trans  &trans  &trans  &trans          &kp DEL      &kp ESC  &trans      &trans  &kp ESC  &kp TAB                  &trans     &trans    &trans     &trans   &trans
+&kp F1  &kp F2  &kp F3  &kp F4  &kp F5           &kp F6  &tog KEYPAD                                        &mo DEF_MOD   &kp F7    &kp F8     &kp F9     &kp F10    &kp F11  &kp F12
+&trans  &trans  &trans  &trans  &kp PRINTSCREEN  &trans  &kp C_PLAY                                         &kp C_VOL_UP  &trans    &trans     &trans     &trans     &trans   &trans
+&trans  &trans  &trans  &trans  &trans           &trans  &kp INS      &trans   &trans      &trans  &trans   &kp C_VOL_DN  &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &trans   &trans
+&trans  &trans  &trans  &trans  &trans           &trans                        &trans      &trans                         &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &trans   &trans
+&trans  &trans  &trans  &trans  &trans                   &kp DEL      &kp ESC  &trans      &trans  &kp ESC  &kp TAB                  &trans     &trans    &trans     &trans   &trans
             >;
         };
 
