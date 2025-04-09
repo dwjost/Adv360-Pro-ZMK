@@ -54,7 +54,7 @@
             tapping-term-ms = <HM_TAP_TERM>;
             quick_tap_ms = <HM_QUICK_TAP_TERM>;
             require-prior-idle-ms = <HM_REQUIRE_IDLE_MS>;
-            flavor = "tap-preferred";
+            flavor = "balanced";
             bindings = <&kp>, <&kp>;
         };
 
@@ -249,11 +249,11 @@
 
         corne_layer_keypad {
             bindings = <
-&none  &none            &none           &none           &none             &none      &none                                               &none      &none            &none           &none           &none            &none       &none
-&none  &kp N1           &kp N2          &kp N3          &kp N4            &kp N5     &none                                               &none      &kp N6           &kp N7          &kp N8          &kp N9           &kp N0      &none
-&none  &hm LCTRL DQT    &hm LGUI TILDE  &hm LALT GRAVE  &hm LSHIFT LBRC   &kp LBKT   &none    &kp ESC     &none   &none  &none           &none      &hm RSHIFT RBKT  &hm RALT RBRC   &hm RGUI MINUS  &hm RCTRL UNDER  &kp SQT     &none
-&none  &trans           &kp X           &none           &kp PIPE          &kp BSLH                        &none   &none                             &kp FSLH         &kp EQUAL       &kp COMMA       &kp DOT          &trans      &none
-&none  &none            &none           &none           &none                        &kp DEL  &kp LSHIFT  &none   &none  &hm RSHIFT ESC  &kp TAB                     &none           &none           &none            &none       &none
+&none  &none            &none           &none           &none             &none      &none                                               &none      &none     &none            &none           &none           &none          &none
+&none  &kp N1           &kp N2          &kp N3          &kp N4            &kp N5     &none                                               &none      &kp N6    &kp N7           &kp N8          &kp N9          &kp N0         &none
+&none  &hm LCTRL DQT    &hm LGUI TILDE  &hm LALT GRAVE  &hm LSHIFT LBRC   &kp LBKT   &none    &kp ESC     &none   &none  &none           &none      &kp RBKT  &hm RSHIFT RBRC  &hm RALT MINUS  &hm RGUI UNDER  &hm RCTRL SQT  &none
+&none  &trans           &kp X           &none           &kp PIPE          &kp BSLH                        &none   &none                             &kp FSLH  &kp EQUAL        &kp COMMA       &kp DOT         &trans         &none
+&none  &none            &none           &none           &none                        &kp DEL  &kp LSHIFT  &none   &none  &hm RSHIFT ESC  &kp TAB              &none            &none           &none           &none          &none
             >;
         };
 
@@ -263,7 +263,7 @@
 &none   &kp F1   &kp F2   &kp F3  &kp F4        &kp F5      &none                                              &none     &kp F6    &kp F7     &kp F8   &kp F9     &kp F10  &none
 &none   &kp F11  &kp F12  &none   &kp C_VOL_UP  &kp C_PLAY  &none     &kp ESC     &none   &none    &kp ESC     &none     &kp LEFT  &kp DOWN   &kp UP   &kp RIGHT  &none    &none
 &none   &none    &none    &trans  &kp C_VOL_DN  &kp INS                           &none   &none                          &kp HOME  &kp PG_DN  &kp PG_UP  &kp END  &none    &none
-&none   &none    &none    &none   &none                     &kp DEL   &kp LSHIFT  &none   &kp ESC  &kp RSHIFT  &kp TAB             &none      &none      &none    &none    &none
+&none   &none    &none    &none   &none                     &kp DEL   &kp LSHIFT  &none   &kp ESC  &kp ENTER   &kp TAB             &none      &none      &none    &none    &none
             >;
         };
 
@@ -273,7 +273,7 @@
 &none   &kp LG(N1)  &kp LG(N2)  &kp LG(N3)    &kp LG(N4)    &kp LG(N5)  &none                                              &none    &kp DOWN  &kp RIGHT  &kp LG(N8)  &kp LG(N9)  &kp LG(N0)  &none
 &none   &kp LCTRL   &kp LGUI    &kp LALT      &kp LSHIFT    &kp C_PLAY  &none      &kp ESC    &none   &none    &kp ESC     &none    &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT   &kp PG_UP   &none
 &none   &none       &none       &kp C_VOL_DN  &kp C_VOL_UP  &kp INS                           &none   &none                         &kp UP    &kp LEFT   &kp HOME    &kp END     &kp PG_DN   &none
-&none   &none       &none       &none         &none                     &kp DEL   &kp LSHIFT  &none   &kp ESC  &kp RSHIFT  &kp TAB            &none      &none       &none       &none       &none
+&none   &none       &none       &none         &none                     &kp DEL   &kp LSHIFT  &none   &kp ESC  &kp ENTER   &kp TAB            &none      &none       &none       &none       &none
             >;
         };
 
