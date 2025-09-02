@@ -33,8 +33,21 @@
 
 #define TD_HM_TAP_TERM     175
 #define TD_Z_TAP_TERM      250
-#define HM_TAP_TERM        180
-#define HM_QUICK_TAP_TERM  150
+#define HM_TAP_TERM          180
+#define HM_TAP_2_TERM        190
+#define HM_TAP_3_TERM        190
+#define HM_TAP_4_TERM        200
+#define HM_TAP_5_TERM        250
+#define HM_QUICK_TAP_TERM    150
+#define HM_QUICK_TAP_2_TERM  150
+#define HM_QUICK_TAP_3_TERM  150
+#define HM_QUICK_TAP_4_TERM  150
+#define HM_QUICK_TAP_5_TERM  150
+#define HM_REQUIRE_IDLE_MS   125
+#define HM_REQUIRE_IDLE_2_MS 125
+#define HM_REQUIRE_IDLE_3_MS 125
+#define HM_REQUIRE_IDLE_4_MS 125
+#define HM_REQUIRE_IDLE_5_MS 125
 #define HM_REQUIRE_IDLE_MS 125
 #define TD_CW_TAP_TERM     190
 #define LT_TAPPING_TERM    100
@@ -55,6 +68,46 @@
             tapping-term-ms = <HM_TAP_TERM>;
             quick_tap_ms = <HM_QUICK_TAP_TERM>;
             require-prior-idle-ms = <HM_REQUIRE_IDLE_MS>;
+            flavor = "balanced";
+            bindings = <&kp>, <&kp>;
+        };
+
+        hm2: homerow_mods_2 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <HM_TAP_2_TERM>;
+            quick-tap-ms = <HM_QUICK_TAP_2_TERM>;
+            require-prior-idle-ms = <HM_REQUIRE_IDLE_2_MS>;
+            flavor = "balanced";
+            bindings = <&kp>, <&kp>;
+        };
+
+        hm3: homerow_mods_3 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <HM_TAP_3_TERM>;
+            quick-tap-ms = <HM_QUICK_TAP_3_TERM>;
+            require-prior-idle-ms = <HM_REQUIRE_IDLE_3_MS>;
+            flavor = "balanced";
+            bindings = <&kp>, <&kp>;
+        };
+
+        hm4: homerow_mods_4 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <HM_TAP_4_TERM>;
+            quick-tap-ms = <HM_QUICK_TAP_4_TERM>;
+            require-prior-idle-ms = <HM_REQUIRE_IDLE_4_MS>;
+            flavor = "balanced";
+            bindings = <&kp>, <&kp>;
+        };
+
+        hm5: homerow_mods_5 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <HM_TAP_5_TERM>;
+            quick-tap-ms = <HM_QUICK_TAP_5_TERM>;
+            require-prior-idle-ms = <HM_REQUIRE_IDLE_5_MS>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
         };
@@ -119,7 +172,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <TD_HM_TAP_TERM>;
-            bindings = <&none>, <&to COLEMAK_DH>;
+            bindings = <&kp TILDE>, <&to COLEMAK_DH>;
         };
 
         td_corne_q: tap_dance_to_corne_qwerty {
@@ -170,21 +223,21 @@
 
         colemak_dh {
             bindings = <
-&td_corne_c   &kp N1       &kp N2      &kp N3      &kp N4        &kp N5  &kp N6                                                                         &kp EQUAL     &kp N6  &kp N7        &kp N8      &kp  N9     &kp N0       &kp MINUS
-&kp TAB       &kp Q        &kp W       &kp F       &kp P         &kp B   &kp LBKT                                                                       &kp RBKT      &kp J   &kp L         &kp U       &kp  Y      &kp SEMI     &kp BSLH
-&kp ESC       &hm LCTRL A  &hm LGUI R  &hm LALT S  &hm LSHIFT T  &kp G   &kp FSLH  &mo CORNE_KEYPAD      &kp LALT      &kp LGUI   &mo CORNE_KEYPAD      &kp FSLH      &kp M   &hm RSHIFT N  &hm RALT E  &hm RGUI I  &hm RCTRL O  &kp SQT
-&kp LSHFT     &td_z        &kp X       &kp C       &kp D         &kp V                                   &kp HOME      &kp PG_UP                                      &kp K   &kp H         &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT
-&mo FUNCTION  &mo CDH_MOD  &kp CAPS    &kp LEFT    &kp RIGHT             &kp BSPC  &td_corne_cw_nav      &kp END       &kp PG_DN  &lt CORNE_NAV ENTER   &kp SPACE             &kp DOWN      &kp UP      &tog KEYPAD &mo CDH_MOD  &mo FUNCTION
+&td_corne_c   &kp N1        &kp N2       &kp N3       &kp N4         &kp N5  &kp N6                                                                         &kp EQUAL     &kp N6  &kp N7         &kp N8       &kp  N9      &kp N0        &kp MINUS
+&kp TAB       &kp Q         &kp W        &kp F        &kp P          &kp B   &kp LBKT                                                                       &kp RBKT      &kp J   &kp L          &kp U        &kp  Y       &kp SEMI      &kp BSLH
+&kp ESC       &hm5 LCTRL A  &hm4 LGUI R  &hm3 LALT S  &hm2 LSHIFT T  &kp G   &kp FSLH  &mo CORNE_KEYPAD      &kp LALT      &kp LGUI   &mo CORNE_KEYPAD      &kp FSLH      &kp M   &hm2 RSHIFT N  &hm3 RALT E  &hm4 RGUI I  &hm5 RCTRL O  &kp SQT
+&kp LSHFT     &td_z         &kp X        &kp C        &kp D          &kp V                                   &kp HOME      &kp PG_UP                                      &kp K   &kp H          &kp COMMA    &kp DOT      &kp FSLH      &kp RSHFT
+&mo FUNCTION  &mo CDH_MOD   &kp CAPS     &kp LEFT     &kp RIGHT              &kp BSPC  &td_corne_cw_nav      &kp END       &kp PG_DN  &lt CORNE_NAV ENTER   &kp SPACE             &kp DOWN       &kp UP       &tog KEYPAD  &mo CDH_MOD   &mo FUNCTION
             >;
         };
 
         qwerty_layer {
             bindings = <
-&td_corne_q   &kp N1        &kp N2      &kp N3      &kp N4        &kp N5  &kp N6                                                                         &kp EQUAL     &kp N6    &kp N7     &kp N8     &kp  N9      &kp N0          &kp MINUS
-&kp TAB       &kp Q         &kp W       &kp E       &kp R         &kp T   &kp LBKT                                                                       &kp RBKT      &kp Y     &kp U      &kp I      &kp  O       &kp P           &kp BSLH
-&kp ESC       &td_hm_a      &hm LGUI S  &hm LALT D  &hm LSHIFT F  &kp G   &kp FSLH  &mo CORNE_KEYPAD      &kp LALT      &kp LGUI   &mo CORNE_KEYPAD      &kp FSLH      &kp H     &td_hm_j   &td_hm_k   &td_hm_l     &hm RCTRL SEMI  &kp SQT
-&kp LSHFT     &td_z         &kp X       &kp C       &td_v         &kp B                                   &kp HOME      &kp PG_UP                                      &kp N     &kp M      &kp COMMA  &kp DOT      &kp FSLH        &kp RSHFT
-&mo FUNCTION  &mo DEF_MOD   &none       &kp LEFT    &kp RIGHT             &kp BSPC  &td_corne_cw_nav      &kp END       &kp PG_DN  &lt CORNE_NAV ENTER   &kp SPACE               &kp DOWN   &kp UP     &tog KEYPAD  &mo DEF_MOD     &mo FUNCTION
+&td_corne_q   &kp N1        &kp N2       &kp N3       &kp N4          &kp N5  &kp N6                                                                         &kp EQUAL     &kp N6    &kp N7     &kp N8     &kp  N9       &kp N0           &kp MINUS
+&kp TAB       &kp Q         &kp W        &kp E        &kp R           &kp T   &kp LBKT                                                                       &kp RBKT      &kp Y     &kp U      &kp I      &kp  O        &kp P            &kp BSLH
+&kp ESC       &td_hm_a      &hm4 LGUI S  &hm3 LALT D  &hm2 LSHIFT  F  &kp G   &kp FSLH  &mo CORNE_KEYPAD      &kp LALT      &kp LGUI   &mo CORNE_KEYPAD      &kp FSLH      &kp H     &td_hm_j   &td_hm_k   &td_hm_l      &hm5 RCTRL SEMI  &kp SQT
+&kp LSHFT     &td_z         &kp X        &kp C        &td_v           &kp B                                   &kp HOME      &kp PG_UP                                      &kp N     &kp M      &kp COMMA  &kp DOT       &kp FSLH         &kp RSHFT
+&mo FUNCTION  &mo DEF_MOD   &none        &kp LEFT     &kp RIGHT               &kp BSPC  &td_corne_cw_nav      &kp END       &kp PG_DN  &lt CORNE_NAV ENTER   &kp SPACE               &kp DOWN   &kp UP     &tog KEYPAD   &mo DEF_MOD      &mo FUNCTION
             >;
         };
 
@@ -194,7 +247,7 @@
 &kp TAB       &kp Q         &kp W         &kp E       &kp R         &kp T   &kp LBKT                                                                       &kp RBKT      &kp Y     &kp U      &kp I      &kp  O        &kp P           &kp BSLH
 &kp ESC       &kp A         &kp S         &kp D       &kp F         &kp G   &kp FSLH  &mo CORNE_KEYPAD      &kp LALT      &kp LGUI   &mo CORNE_KEYPAD      &kp FSLH      &kp H     &kp J      &kp K      &kp  L        &kp SEMI        &kp SQT
 &kp LSHFT     &td_z         &kp X         &kp C       &td_v         &kp B                                   &kp HOME      &kp PG_UP                                      &kp N     &kp M      &kp COMMA  &kp DOT       &kp FSLH        &kp RSHFT
-&kp LCTRL     &mo DEF_MOD   &kp FUNCTION  &kp LEFT    &kp RIGHT             &kp BSPC  &td_corne_cw_nav      &kp END       &kp PG_DN  &lt CORNE_NAV ENTER   &kp SPACE               &kp DOWN   &kp UP     &mo FUNCTION  &mo DEF_MOD     &kp RCTRL
+&kp LCTRL     &mo DEF_MOD   &kp CORNE_NAV &kp LEFT    &kp RIGHT             &kp BSPC  &kp SPACE             &kp END       &kp PG_DN  &lt CORNE_NAV ENTER   &kp SPACE               &kp DOWN   &kp UP     &mo FUNCTION  &mo DEF_MOD     &kp RCTRL
             >;
         };
 
